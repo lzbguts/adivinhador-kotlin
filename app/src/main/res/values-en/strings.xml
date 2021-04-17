@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Guesser</string>
-    <string name="txt_start">Start</string>
+    <string name="txt_credits">Credits</string>
+    <string name="txt_easy">Easy</string>
+    <string name="txt_hard">Hard</string>
+    <string name="txt_impossible">Impossible</string>
 </resources>

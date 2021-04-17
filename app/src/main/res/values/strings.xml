@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Adivinhador</string>
-    <string name="txt_start">Começar</string>
+    <string name="txt_credits">Créditos</string>
+    <string name="txt_easy">Fácil</string>
+    <string name="txt_normal" translatable="false">Normal</string>
+    <string name="txt_hard">Difícil</string>
+    <string name="txt_impossible">Impossível</string>
 </resources>
