@@ -5,4 +5,7 @@
     <string name="txt_normal" translatable="false">Normal</string>
     <string name="txt_hard">Difícil</string>
     <string name="txt_impossible">Impossível</string>
+    <string name="desc_hint">Dica</string>
+    <string name="desc_header" translatable="false">Header</string>
+    <string name="desc_footer" translatable="false">Footer</string>
 </resources>

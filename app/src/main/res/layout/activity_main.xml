@@ -1,52 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     tools:context=".MainActivity">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_credits"
-        style="?android:attr/buttonBarButtonStyle"
+    <ImageView
+        android:id="@+id/header_main"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:contentDescription="@string/desc_header"
+        android:scaleType="fitXY"
+        android:src="@drawable/header"/>
+
+    <ImageView
+        android:id="@+id/footer_main"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:contentDescription="@string/desc_footer"
+        android:layout_alignParentBottom="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/footer"/>
+
+    <RelativeLayout
+        android:id="@+id/relativeMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="153dp"
-        android:onClick="creditsButton"
-        android:text="@string/txt_credits"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:strokeColor="@color/purple_500"
-        app:strokeWidth="2dp" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="400dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="260dp"
-        android:layout_marginEnd="24dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_below="@+id/header_main"
+        android:layout_centerHorizontal="true">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_easy"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
             android:onClick="startButton"
             android:text="@string/txt_easy"
-            android:textSize="11sp"
+            android:textSize="12sp"
             app:strokeColor="@color/purple_500"
             app:strokeWidth="2dp" />
 
@@ -55,12 +47,11 @@
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
+            android:layout_toEndOf="@+id/btn_easy"
+            android:layout_marginEnd="10dp"
             android:onClick="startButton"
             android:text="@string/txt_normal"
-            android:textSize="11sp"
+            android:textSize="12sp"
             app:strokeColor="@color/purple_500"
             app:strokeWidth="2dp" />
 
@@ -69,12 +60,11 @@
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
+            android:layout_toEndOf="@+id/btn_normal"
+            android:layout_marginEnd="10dp"
             android:onClick="startButton"
             android:text="@string/txt_hard"
-            android:textSize="11sp"
+            android:textSize="12sp"
             app:strokeColor="@color/purple_500"
             app:strokeWidth="2dp" />
 
@@ -83,14 +73,26 @@
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
+            android:layout_toEndOf="@+id/btn_hard"
             android:onClick="startButton"
             android:text="@string/txt_impossible"
-            android:textSize="11sp"
+            android:textSize="12sp"
             app:strokeColor="@color/purple_500"
             app:strokeWidth="2dp" />
-    </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_credits"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/relativeMain"
+        android:onClick="creditsButton"
+        android:text="@string/txt_credits"
+        android:textSize="12sp"
+        app:strokeColor="@color/purple_500"
+        app:strokeWidth="2dp" />
+
+</RelativeLayout>

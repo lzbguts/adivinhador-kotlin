@@ -1,60 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/background"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Adivinhador">
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/header_adv"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:contentDescription="@string/desc_header"
+        android:scaleType="fitXY"
+        android:src="@drawable/header" />
+
+    <ImageView
+        android:id="@+id/footer_adv"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_alignParentBottom="true"
+        android:contentDescription="@string/desc_footer"
+        android:scaleType="fitXY"
+        android:src="@drawable/footer" />
 
     <TextView
         android:id="@+id/txt_erros"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="5dp"
+        android:layout_alignTop="@+id/header_adv"
+        android:layout_alignParentStart="true"
         android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:ignore="RelativeOverlap" />
 
     <TextView
         android:id="@+id/txt_valorlogico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="93dp"
-        android:layout_marginEnd="168dp"
-        android:layout_marginBottom="122dp"
-        android:textColor="@color/white"
         android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        tools:ignore="RelativeOverlap" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="256dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="77dp"
-        android:layout_marginTop="275dp"
-        android:layout_marginEnd="78dp"
-        android:backgroundTint="#FFFFFF"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <TextView
+        android:id="@+id/txt_dnum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_valorlogico"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:id="@+id/btn_hint"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:onClick="hintClick"
+        android:scaleType="fitXY"
+        android:background="@null"
+        android:contentDescription="@string/desc_hint"
+        android:src="@drawable/hint"/>
+
+    <RelativeLayout
+        android:id="@+id/row1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header_adv"
+        android:layout_centerHorizontal="true">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_n1"
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="46dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
             android:backgroundTint="#FFFFFF"
             android:onClick="guessClick"
             android:textColor="@color/black"
@@ -64,11 +83,10 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_n2"
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="46dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@+id/btn_n1"
             android:backgroundTint="#FFFFFF"
             android:onClick="guessClick"
             android:textColor="@color/black"
@@ -78,11 +96,10 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_n3"
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="46dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@+id/btn_n2"
             android:backgroundTint="#FFFFFF"
             android:onClick="guessClick"
             android:textColor="@color/black"
@@ -92,11 +109,10 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_n4"
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="46dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@+id/btn_n3"
             android:backgroundTint="#FFFFFF"
             android:onClick="guessClick"
             android:textColor="@color/black"
@@ -106,128 +122,103 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_n5"
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="46dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
+            android:layout_toEndOf="@+id/btn_n4"
             android:backgroundTint="#FFFFFF"
             android:onClick="guessClick"
             android:textColor="@color/black"
             app:strokeColor="@color/black"
             app:strokeWidth="2dp"/>
-    </LinearLayout>
+    </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="256dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="77dp"
-        android:layout_marginEnd="78dp"
-        android:layout_marginBottom="383dp"
-        android:backgroundTint="#FFFFFF"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout1">
+    <RelativeLayout
+        android:id="@+id/row2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/row1"
+        android:layout_centerHorizontal="true">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_n6"
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="46dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
             android:backgroundTint="#FFFFFF"
             android:onClick="guessClick"
             android:textColor="@color/black"
             app:strokeColor="@color/black"
-            app:strokeWidth="2dp" />
+            app:strokeWidth="2dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_n7"
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="46dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@+id/btn_n6"
             android:backgroundTint="#FFFFFF"
             android:onClick="guessClick"
             android:textColor="@color/black"
             app:strokeColor="@color/black"
-            app:strokeWidth="2dp" />
+            app:strokeWidth="2dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_n8"
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="46dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@+id/btn_n7"
             android:backgroundTint="#FFFFFF"
             android:onClick="guessClick"
             android:textColor="@color/black"
             app:strokeColor="@color/black"
-            app:strokeWidth="2dp" />
+            app:strokeWidth="2dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_n9"
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="46dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@+id/btn_n8"
             android:backgroundTint="#FFFFFF"
             android:onClick="guessClick"
             android:textColor="@color/black"
             app:strokeColor="@color/black"
-            app:strokeWidth="2dp" />
+            app:strokeWidth="2dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_n10"
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="46dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
+            android:layout_toEndOf="@+id/btn_n9"
             android:backgroundTint="#FFFFFF"
             android:onClick="guessClick"
             android:textColor="@color/black"
             app:strokeColor="@color/black"
-            app:strokeWidth="2dp" />
-    </LinearLayout>
+            app:strokeWidth="2dp"/>
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="256dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="77dp"
-        android:layout_marginEnd="78dp"
-        android:layout_marginBottom="383dp"
-        android:orientation="horizontal"
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/row3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/row2"
+        android:layout_centerHorizontal="true"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.0"
         tools:visibility="visible">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_n11"
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="46dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
             android:backgroundTint="#FFFFFF"
             android:onClick="guessClick"
             android:textColor="@color/black"
@@ -237,11 +228,10 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_n12"
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="46dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@+id/btn_n11"
             android:backgroundTint="#FFFFFF"
             android:onClick="guessClick"
             android:textColor="@color/black"
@@ -251,11 +241,10 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_n13"
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="46dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@+id/btn_n12"
             android:backgroundTint="#FFFFFF"
             android:onClick="guessClick"
             android:textColor="@color/black"
@@ -265,11 +254,10 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_n14"
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="46dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@+id/btn_n13"
             android:backgroundTint="#FFFFFF"
             android:onClick="guessClick"
             android:textColor="@color/black"
@@ -279,43 +267,15 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_n15"
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="46dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
+            android:layout_toEndOf="@+id/btn_n14"
             android:backgroundTint="#FFFFFF"
             android:onClick="guessClick"
             android:textColor="@color/black"
             app:strokeColor="@color/black"
             app:strokeWidth="2dp" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
-    <ImageButton
-        android:id="@+id/btn_hint"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@null"
-        android:contentDescription="@string/app_name"
-        android:onClick="hintClick"
-        android:scaleType="fitXY"
-        android:src="@drawable/hint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/txt_dnum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="179dp"
-        android:layout_marginTop="136dp"
-        android:layout_marginEnd="174dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.465"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

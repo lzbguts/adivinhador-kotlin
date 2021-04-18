@@ -5,4 +5,5 @@
     <string name="txt_easy">Easy</string>
     <string name="txt_hard">Hard</string>
     <string name="txt_impossible">Impossible</string>
+    <string name="desc_hint">Hint</string>
 </resources>
