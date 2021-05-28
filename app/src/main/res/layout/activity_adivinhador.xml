@@ -32,6 +32,19 @@
         android:textColor="@color/white"
         tools:ignore="RelativeOverlap" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_desistir"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Desistir"
+        android:onClick="desistirFunc"
+        android:textSize="12sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/holo_red_dark"
+        app:strokeColor="@android:color/holo_red_dark"
+        app:strokeWidth="2dp" />
+
     <TextView
         android:id="@+id/txt_valorlogico"
         android:layout_width="wrap_content"
@@ -39,7 +52,7 @@
         android:textSize="36sp"
         android:textColor="@color/white"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="38dp"
         tools:ignore="RelativeOverlap" />
 
     <TextView
@@ -50,17 +63,6 @@
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true" />
 
-    <ImageButton
-        android:id="@+id/btn_hint"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentEnd="true"
-        android:onClick="hintClick"
-        android:scaleType="fitXY"
-        android:background="@null"
-        android:contentDescription="@string/desc_hint"
-        android:src="@drawable/hint"/>
-
     <RelativeLayout
         android:id="@+id/row1"
         android:layout_width="wrap_content"
@@ -68,214 +70,25 @@
         android:layout_below="@+id/header_adv"
         android:layout_centerHorizontal="true">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_n1"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="46dp"
+        <EditText
+            android:id="@+id/edit_num"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:backgroundTint="#FFFFFF"
-            android:onClick="guessClick"
-            android:textColor="@color/black"
-            app:strokeColor="@color/black"
-            app:strokeWidth="2dp"/>
+            android:inputType="number"
+            android:layout_centerHorizontal="true"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_n2"
+            android:id="@+id/btn_confirmar"
             style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="46dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_toEndOf="@+id/btn_n1"
-            android:backgroundTint="#FFFFFF"
+            android:text="Confirmar"
             android:onClick="guessClick"
-            android:textColor="@color/black"
-            app:strokeColor="@color/black"
-            app:strokeWidth="2dp"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_n3"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="46dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_toEndOf="@+id/btn_n2"
-            android:backgroundTint="#FFFFFF"
-            android:onClick="guessClick"
-            android:textColor="@color/black"
-            app:strokeColor="@color/black"
-            app:strokeWidth="2dp"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_n4"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="46dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_toEndOf="@+id/btn_n3"
-            android:backgroundTint="#FFFFFF"
-            android:onClick="guessClick"
-            android:textColor="@color/black"
-            app:strokeColor="@color/black"
-            app:strokeWidth="2dp"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_n5"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="46dp"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/btn_n4"
-            android:backgroundTint="#FFFFFF"
-            android:onClick="guessClick"
-            android:textColor="@color/black"
-            app:strokeColor="@color/black"
-            app:strokeWidth="2dp"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/row2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/row1"
-        android:layout_centerHorizontal="true">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_n6"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="46dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:backgroundTint="#FFFFFF"
-            android:onClick="guessClick"
-            android:textColor="@color/black"
-            app:strokeColor="@color/black"
-            app:strokeWidth="2dp"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_n7"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="46dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_toEndOf="@+id/btn_n6"
-            android:backgroundTint="#FFFFFF"
-            android:onClick="guessClick"
-            android:textColor="@color/black"
-            app:strokeColor="@color/black"
-            app:strokeWidth="2dp"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_n8"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="46dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_toEndOf="@+id/btn_n7"
-            android:backgroundTint="#FFFFFF"
-            android:onClick="guessClick"
-            android:textColor="@color/black"
-            app:strokeColor="@color/black"
-            app:strokeWidth="2dp"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_n9"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="46dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_toEndOf="@+id/btn_n8"
-            android:backgroundTint="#FFFFFF"
-            android:onClick="guessClick"
-            android:textColor="@color/black"
-            app:strokeColor="@color/black"
-            app:strokeWidth="2dp"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_n10"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="46dp"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/btn_n9"
-            android:backgroundTint="#FFFFFF"
-            android:onClick="guessClick"
-            android:textColor="@color/black"
-            app:strokeColor="@color/black"
-            app:strokeWidth="2dp"/>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/row3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/row2"
-        android:layout_centerHorizontal="true"
-        android:visibility="invisible"
-        tools:visibility="visible">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_n11"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="46dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:backgroundTint="#FFFFFF"
-            android:onClick="guessClick"
-            android:textColor="@color/black"
-            app:strokeColor="@color/black"
+            android:textSize="12sp"
+            android:layout_below="@id/edit_num"
+            android:layout_centerHorizontal="true"
+            app:strokeColor="@color/purple_500"
             app:strokeWidth="2dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_n12"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="46dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_toEndOf="@+id/btn_n11"
-            android:backgroundTint="#FFFFFF"
-            android:onClick="guessClick"
-            android:textColor="@color/black"
-            app:strokeColor="@color/black"
-            app:strokeWidth="2dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_n13"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="46dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_toEndOf="@+id/btn_n12"
-            android:backgroundTint="#FFFFFF"
-            android:onClick="guessClick"
-            android:textColor="@color/black"
-            app:strokeColor="@color/black"
-            app:strokeWidth="2dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_n14"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="46dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_toEndOf="@+id/btn_n13"
-            android:backgroundTint="#FFFFFF"
-            android:onClick="guessClick"
-            android:textColor="@color/black"
-            app:strokeColor="@color/black"
-            app:strokeWidth="2dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_n15"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="46dp"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/btn_n14"
-            android:backgroundTint="#FFFFFF"
-            android:onClick="guessClick"
-            android:textColor="@color/black"
-            app:strokeColor="@color/black"
-            app:strokeWidth="2dp" />
-
     </RelativeLayout>
 
 </RelativeLayout>

@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity()
             R.id.btn_easy -> difficulty = "easy"
             R.id.btn_normal -> difficulty = "normal"
             R.id.btn_hard -> difficulty = "hard"
-            R.id.btn_impossible -> difficulty = "impossible"
         }
         intent = Intent(this, Adivinhador::class.java)
         intent.putExtra("difficulty", difficulty)

@@ -61,21 +61,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/btn_normal"
-            android:layout_marginEnd="10dp"
             android:onClick="startButton"
             android:text="@string/txt_hard"
-            android:textSize="12sp"
-            app:strokeColor="@color/purple_500"
-            app:strokeWidth="2dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_impossible"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/btn_hard"
-            android:onClick="startButton"
-            android:text="@string/txt_impossible"
             android:textSize="12sp"
             app:strokeColor="@color/purple_500"
             app:strokeWidth="2dp" />

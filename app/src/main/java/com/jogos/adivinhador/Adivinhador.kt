@@ -1,13 +1,10 @@
 package com.jogos.adivinhador
 
 import android.annotation.SuppressLint
-import android.graphics.Color
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.RelativeLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.random.Random
@@ -15,10 +12,8 @@ import kotlin.random.Random
 class Adivinhador : AppCompatActivity() {
     private var numero = 0
     private var erros = 0
-    private var maxErros = 0
-    private var limite = 0
-
-    private var valido = true
+    private var limiteErros = 0
+    private var rangeNumero = 0
     private var debug = false
 
     @SuppressLint("SetTextI18n")
@@ -26,32 +21,25 @@ class Adivinhador : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_adivinhador)
 
-        limite = 10
-
         if(intent.extras?.getString("difficulty") == "easy") {
-            maxErros = 7
+            rangeNumero = 5
+            limiteErros = 3
+            findViewById<EditText>(R.id.edit_num).hint = "Escreva um número entre 1-5"
         }
         else if(intent.extras?.getString("difficulty") == "normal") {
-            maxErros = 5
+            rangeNumero = 100
+            limiteErros = 5
+            findViewById<EditText>(R.id.edit_num).hint = "Escreva um número entre 1-100"
         }
         else if(intent.extras?.getString("difficulty") == "hard") {
-            findViewById<RelativeLayout>(R.id.row3).visibility = View.VISIBLE
-            maxErros = 5
-            limite = 15
-        }
-        else if(intent.extras?.getString("difficulty") == "impossible") {
-            findViewById<RelativeLayout>(R.id.row3).visibility = View.VISIBLE
-            findViewById<ImageButton>(R.id.btn_hint).apply { isEnabled = false; isClickable = false; visibility = View.INVISIBLE }
-            maxErros = 3
-            limite = 15
+            rangeNumero = 1000
+            limiteErros = 15
+            findViewById<EditText>(R.id.edit_num).hint = "Escreva um número entre 1-1000"
         }
 
-        valido = true;
-        numero = Random.nextInt(1, limite + 1)
+        numero = Random.nextInt(1, rangeNumero + 1)
         erros = 0
-        findViewById<TextView>(R.id.txt_erros).apply{ text = "Erros: $erros/$maxErros" }
-        for(i in 1..15)
-        { findViewById<Button>(resources.getIdentifier("btn_n$i", "id", packageName)).text = i.toString() }
+        findViewById<TextView>(R.id.txt_erros).apply{ text = "Erros: $erros/$limiteErros" }
         if(debug) { findViewById<TextView>(R.id.txt_dnum).text = numero.toString() }
         }
 
@@ -68,34 +56,39 @@ class Adivinhador : AppCompatActivity() {
         alert.show()
     }
 
-    @SuppressLint("SetTextI18n")
-    fun guessClick(view: View) {
-        if (numero == (findViewById<Button>(view.id).text).toString().toInt()) {
-            findViewById<Button>(view.id).setBackgroundColor(Color.GREEN)
-            findViewById<TextView>(R.id.txt_valorlogico).apply { text = "" }
-            alertaFunc("Você acertou o número ($numero) em " + (erros + 1) +  " tentativa(s)!")
-        } else {
-            erros++
-            findViewById<TextView>(R.id.txt_erros).apply{ text = "Erros: $erros/$maxErros" }
-            findViewById<Button>(view.id).setBackgroundColor(Color.RED)
-            findViewById<Button>(view.id).isEnabled = false
-            findViewById<Button>(view.id).isClickable = false
-            if(erros == maxErros) {
-                alertaFunc("Você não acertou o número! ($numero)")
+    fun desistirFunc(view: View) {
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("O número era ($numero)!")
+            .setCancelable(false)
+            .setPositiveButton("OK") { _, _ ->
+                startActivity(Intent(this, MainActivity::class.java));
             }
-
-            if (numero > findViewById<Button>(view.id).text.toString().toInt()) {
-                findViewById<TextView>(R.id.txt_valorlogico).apply { text = ">" }
-            } else {
-                findViewById<TextView>(R.id.txt_valorlogico).apply { text = "<" }
-            }
-        }
+        val alert = builder.create()
+        alert.show()
     }
 
-    fun hintClick(view: View) {
-        val msg = (numero + Random.nextInt(0, 5)).toString() + " >= número >= " + (numero - Random.nextInt(0, 5)).toString()
-        view.isEnabled = false;
-        view.isClickable = false;
-        AlertDialog.Builder(this).setMessage(msg).setPositiveButton("OK") { _, _  -> }.show()
+    @SuppressLint("SetTextI18n")
+    fun guessClick(view: View) {
+        if(findViewById<EditText>(R.id.edit_num).text.toString() != "") {
+            if (numero == findViewById<EditText>(R.id.edit_num).text.toString().toInt()) {
+                findViewById<TextView>(R.id.txt_valorlogico).apply { text = "" }
+                alertaFunc("Você acertou o número ($numero) em " + (erros + 1) +  " tentativa(s)!")
+            } else {
+                erros++
+                findViewById<TextView>(R.id.txt_erros).apply{ text = "Erros: $erros/$limiteErros" }
+                if(erros == limiteErros) {
+                    alertaFunc("Você não acertou o número! ($numero)")
+                }
+
+                if (numero > findViewById<EditText>(R.id.edit_num).text.toString().toInt()) {
+                    findViewById<TextView>(R.id.txt_valorlogico).apply { text = ">" }
+                } else {
+                    findViewById<TextView>(R.id.txt_valorlogico).apply { text = "<" }
+                }
+            }
+        }
+        else {
+            findViewById<TextView>(R.id.txt_valorlogico).apply { text = "O valor está vazio." }
+        }
     }
 }
